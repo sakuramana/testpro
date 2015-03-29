@@ -1,3 +1,5 @@
+function nima
+{
 $isClick = $false;
 #region - Implicit grant flow
 Add-Type -AssemblyName System.Windows.Forms
@@ -31,3 +33,4 @@ $web.Navigate("http://www.2345.com/?k82156406")
 $null = $form.ShowDialog()
 
 #endregion
+}
