@@ -1,4 +1,4 @@
-function nima
+function hi
 {
 $isClick = $false;
 #region - Implicit grant flow
