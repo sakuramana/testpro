@@ -14,10 +14,10 @@ $OnDocumentCompleted = {
 		[System.Console]::WriteLine($id)
 		$send = $web.Document.Links[$id];
 		$send.InvokeMember("click");
-		[System.Threading.Thread]::Sleep(1000)
+		[System.Threading.Thread]::Sleep(10000)
 	}
 	else{
-		[System.Threading.Thread]::Sleep(1000)
+		[System.Threading.Thread]::Sleep(10000)
 		$Form.Close()
 	}
 }
