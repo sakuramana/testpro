@@ -1,8 +1,8 @@
 function hi
 {
-$isClick = $false;
 #region - Implicit grant flow
 Add-Type -AssemblyName System.Windows.Forms
+$isClick = $false;
 $OnDocumentCompleted = {
 	foreach ($archor in $web.Document.Links){
 		$archor.SetAttribute("target", "_self")
