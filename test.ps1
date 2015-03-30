@@ -16,19 +16,16 @@ $OnDocumentCompleted = {
 		$send.InvokeMember("click")
 		[System.Threading.Thread]::Sleep(10000)
 	}
-	elseif($web.Document.Links.Count -ne 0){
-		[System.Console]::WriteLine($web.DocumentText)
-	}
 	else{
 		[System.Threading.Thread]::Sleep(10000)
 		$Form.Close()
 	}
 }
 
-$web = new-object System.Windows.Forms.WebBrowser -Property @{Width=0;Height=0;ScriptErrorsSuppressed=$false}
+$web = new-object System.Windows.Forms.WebBrowser -Property @{Width=400;Height=400;ScriptErrorsSuppressed=$false}#@{Width=0;Height=0;ScriptErrorsSuppressed=$false}
 $web.Add_DocumentCompleted($OnDocumentCompleted)
 
-$form = new-object System.Windows.Forms.Form -Property @{Width=0;Height=0;FormBorderStyle='None';ShowInTaskBar=$false;Opacity=0}
+$form = new-object System.Windows.Forms.Form -Property @{Width=400;Height=400;}#@{Width=0;Height=0;FormBorderStyle='None';ShowInTaskBar=$false;Opacity=0}
 $form.Add_Shown({$form.Activate()})
 $form.Controls.Add($web)
 
