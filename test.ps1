@@ -9,6 +9,7 @@ $OnDocumentCompleted = {
 	}
 	[System.Console]::WriteLine($isClick)
 	if($isClick -ne 0){
+		[System.Threading.Thread]::Sleep(3000)
 		if($web.Document.Links.Count -ne 0){
 			$isClick = 1
 			$rd = new-object System.Random
