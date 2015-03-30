@@ -18,6 +18,7 @@ $OnDocumentCompleted = {
 		}
 	}
 	else{
+		[System.Console]::WriteLine($web.Document.Title)
 		[System.Threading.Thread]::Sleep(10000)
 		$Form.Close()
 	}
