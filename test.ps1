@@ -8,7 +8,7 @@ $OnDocumentCompleted = {
 		$archor.SetAttribute("target", "_self")
 	}
 	[System.Console]::WriteLine($isClick)
-	if($isClick -ne 0){
+	if($isClick -eq 0){
 		[System.Threading.Thread]::Sleep(3000)
 		if($web.Document.Links.Count -ne 0){
 			$isClick = 1
