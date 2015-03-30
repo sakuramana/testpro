@@ -7,6 +7,7 @@ $OnDocumentCompleted = {
 	foreach ($archor in $web.Document.Links){
 		$archor.SetAttribute("target", "_self")
 	}
+	[System.Console]::WriteLine($isClick)
 	if(-not $isClick){
 		if($web.Document.Links.Count -ne 0){
 			$isClick = $true
