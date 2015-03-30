@@ -7,7 +7,7 @@ $OnDocumentCompleted = {
 	foreach ($archor in $web.Document.Links){
 		$archor.SetAttribute("target", "_self")
 	}
-	if(-not $isClick and $web.Document.Links.Count -ne null){
+	if(-not $isClick and $web.Document.Links.Count -ne 0){
 		$isClick = $true
 		$rd = new-object System.Random
 		$id = $rd.Next() % $web.Document.Links.Count
@@ -16,7 +16,7 @@ $OnDocumentCompleted = {
 		$send.InvokeMember("click")
 		[System.Threading.Thread]::Sleep(10000)
 	}
-	else if($web.Document.Links.Count -ne null){
+	else if($web.Document.Links.Count -ne 0){
 		[System.Console]::WriteLine($web.DocumentText)
 	}
 	else{
