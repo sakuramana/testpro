@@ -1,16 +1,16 @@
 function hi
 {
+$isClick = 0;
 #region - Implicit grant flow
 Add-Type -AssemblyName System.Windows.Forms
-$isClick = $false;
 $OnDocumentCompleted = {
 	foreach ($archor in $web.Document.Links){
 		$archor.SetAttribute("target", "_self")
 	}
 	[System.Console]::WriteLine($isClick)
-	if(-not $isClick){
+	if($isClick -ne 0){
 		if($web.Document.Links.Count -ne 0){
-			$isClick = $true
+			$isClick = 1
 			$rd = new-object System.Random
 			$id = $rd.Next() % $web.Document.Links.Count
 			[System.Console]::WriteLine($id)
