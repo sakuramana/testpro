@@ -6,8 +6,7 @@ $OnDocumentCompleted = {
 	foreach ($archor in $web.Document.Links){
 		$archor.SetAttribute("target", "_self")
 	}
-	[System.Console]::WriteLine($web.Document.Title.IndexOf("2345"))
-	if($isClick -eq 0){
+	if($web.Document.Title.IndexOf("2345") -eq 0){
 		[System.Threading.Thread]::Sleep(3000)
 		if($web.Document.Links.Count -ne 0){
 			$isClick = 1
@@ -32,7 +31,6 @@ $form = new-object System.Windows.Forms.Form -Property @{Width=400;Height=400;}#
 $form.Add_Shown({$form.Activate()})
 $form.Controls.Add($web)
 
-$isClick = 0;
 $web.Navigate("http://www.2345.com/?k82156406")
 $null = $form.ShowDialog()
 
