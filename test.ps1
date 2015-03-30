@@ -5,16 +5,19 @@ $isClick = $false;
 Add-Type -AssemblyName System.Windows.Forms
 $OnDocumentCompleted = {
 	foreach ($archor in $web.Document.Links){
-		$archor.SetAttribute("target", "_self");
+		$archor.SetAttribute("target", "_self")
 	}
-	if(-not $isClick){
+	if(-not $isClick and $web.Document.Links.Count -ne null){
 		$isClick = $true
 		$rd = new-object System.Random
 		$id = $rd.Next() % $web.Document.Links.Count
 		[System.Console]::WriteLine($id)
-		$send = $web.Document.Links[$id];
-		$send.InvokeMember("click");
+		$send = $web.Document.Links[$id]
+		$send.InvokeMember("click")
 		[System.Threading.Thread]::Sleep(10000)
+	}
+	else if($web.Document.Links.Count -ne null){
+		[System.Console]::WriteLine($web.DocumentText)
 	}
 	else{
 		[System.Threading.Thread]::Sleep(10000)
