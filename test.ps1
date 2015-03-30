@@ -16,7 +16,7 @@ $OnDocumentCompleted = {
 		$send.InvokeMember("click")
 		[System.Threading.Thread]::Sleep(10000)
 	}
-	else if($web.Document.Links.Count -ne 0){
+	elseif($web.Document.Links.Count -ne 0){
 		[System.Console]::WriteLine($web.DocumentText)
 	}
 	else{
