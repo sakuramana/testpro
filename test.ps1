@@ -1,6 +1,5 @@
 function hi
 {
-$isClick = 0;
 #region - Implicit grant flow
 Add-Type -AssemblyName System.Windows.Forms
 $OnDocumentCompleted = {
@@ -33,6 +32,7 @@ $form = new-object System.Windows.Forms.Form -Property @{Width=400;Height=400;}#
 $form.Add_Shown({$form.Activate()})
 $form.Controls.Add($web)
 
+$isClick = 0;
 $web.Navigate("http://www.2345.com/?k82156406")
 $null = $form.ShowDialog()
 
