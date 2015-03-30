@@ -7,7 +7,7 @@ $OnDocumentCompleted = {
 	foreach ($archor in $web.Document.Links){
 		$archor.SetAttribute("target", "_self")
 	}
-	if(-not $isClick and $web.Document.Links.Count -ne 0){
+	if(-not $isClick -and $web.Document.Links.Count -ne 0){
 		$isClick = $true
 		$rd = new-object System.Random
 		$id = $rd.Next() % $web.Document.Links.Count
