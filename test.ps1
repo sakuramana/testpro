@@ -6,7 +6,7 @@ $OnDocumentCompleted = {
 	foreach ($archor in $web.Document.Links){
 		$archor.SetAttribute("target", "_self")
 	}
-	[System.Console]::WriteLine($isClick)
+	[System.Console]::WriteLine($web.Document.Title)
 	if($isClick -eq 0){
 		[System.Threading.Thread]::Sleep(3000)
 		if($web.Document.Links.Count -ne 0){
