@@ -209,10 +209,19 @@ public class Program
 	{
 		try
 		{
-			byte[] bData = (byte[])rk.GetValue(name);
-			if (bData != null)
+			object obj = rk.GetValue(name);
+			if (obj != null)
 			{
-				Console.WriteLine(name + ":\t" + System.Text.Encoding.Unicode.GetString(bData));
+				RegistryValueKind vk = rk.GetValueKind(name);
+				if (vk == RegistryValueKind.Binary)
+				{
+					byte[] bData = (byte[])obj;
+					Console.WriteLine(name + ":\t" + System.Text.Encoding.Unicode.GetString(bData));
+				}
+				else if (vk == RegistryValueKind.DWord)
+				{
+					Console.WriteLine(name + ":\t" + obj);
+				}
 			}
 		}
 		catch (System.Exception ex)
