@@ -130,6 +130,7 @@ public class Program
 				string szEncodePass = Read(xmlValue, "POP3_Password2");
 				if (szEncodePass != "")
 				{
+					Console.WriteLine(xmlValue);
 					Console.WriteLine("POP3_Password:\t" + DecodePass(szEncodePass, salt));
 					ShowInfo(xmlValue, "POP3");
 					ShowInfo(xmlValue, "SMTP");
