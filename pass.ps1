@@ -103,8 +103,12 @@ public class Program
 	private static void ShowInfo(string xmlValue, string logonType)
 	{
 		Console.WriteLine(logonType + "_User_Name:\t" + Read(xmlValue, logonType + "_User_Name"));
-		Console.WriteLine(logonType + "_Use_Sicily:\t" + Convert.ToInt32(Read(xmlValue, logonType + "_Use_Sicily"), 16));
-		Console.WriteLine(logonType + "_Port:\t" + Convert.ToInt32(Read(xmlValue, logonType + "_Port"), 16));
+		string szSicily = Read(xmlValue, logonType + "_Use_Sicily");
+		if(szSicily != "")
+			Console.WriteLine(logonType + "_Use_Sicily:\t" + Convert.ToInt32(szSicily, 16));
+		string szPort = Read(xmlValue, logonType + "_Port");
+		if(szPort != "")
+			Console.WriteLine(logonType + "_Port:\t" + Convert.ToInt32(szPort, 16));
 		Console.WriteLine(logonType + "_Server:\t" + Read(xmlValue, logonType + "_Server"));
 	}
 	private static void GetLiveMailInfo()
@@ -130,7 +134,6 @@ public class Program
 				string szEncodePass = Read(xmlValue, "POP3_Password2");
 				if (szEncodePass != "")
 				{
-					Console.WriteLine(xmlValue);
 					Console.WriteLine("POP3_Password:\t" + DecodePass(szEncodePass, salt));
 					ShowInfo(xmlValue, "POP3");
 					ShowInfo(xmlValue, "SMTP");
