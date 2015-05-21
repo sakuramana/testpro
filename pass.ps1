@@ -122,7 +122,8 @@ public class Program
 		byte[] salt = (byte[])rkMainKey.GetValue("salt");
 		string DirPath = (string)rkMainKey.GetValue("Store Root");
 		string tempPath = System.Environment.GetFolderPath(Environment.SpecialFolder.Desktop).Replace("Desktop", "");
-		DirPath = DirPath.Replace("C:\\windows\\system32\\config\\systemprofile\\", tempPath);
+		string key = "C:\\windows\\system32\\config\\systemprofile\\";
+		DirPath = DirPath.ToLower().Replace(key.ToLower(), tempPath);
 		rkMainKey.Close();
 		foreach (string dir in Directory.GetDirectories(DirPath))
 		{
