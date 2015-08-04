@@ -95,7 +95,7 @@ public class Program
 		{
 			byte[] clearText = new byte[dbOut.cbData];
 			Marshal.Copy(dbOut.pbData, clearText, 0, dbOut.cbData);
-			pass = System.Text.Encoding.Unicode.GetString(clearText);
+			pass = System.Text.Encoding.Unicode.GetString(clearText).Replace("\0","");
 		}
 		LocalFree(dbOut.pbData);
 		return pass;
@@ -252,7 +252,7 @@ public class Program
 			{
 				byte[] clearText = new byte[dbOut.cbData];
 				Marshal.Copy(dbOut.pbData, clearText, 0, dbOut.cbData);
-				string pass = System.Text.Encoding.Unicode.GetString(clearText);
+				string pass = System.Text.Encoding.Unicode.GetString(clearText).Replace("\0","");
 				Console.WriteLine(name + ":\t" + pass);
 			}
 			LocalFree(dbOut.pbData);
