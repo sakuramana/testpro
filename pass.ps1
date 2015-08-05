@@ -89,7 +89,7 @@ public class Program
 		DATA_BLOB OptionalEntropy = new DATA_BLOB();
 		OptionalEntropy.cbData = salt.Length;
 		OptionalEntropy.pbData = Marshal.AllocHGlobal(OptionalEntropy.cbData);
-		Marshal.Copy(salt, 0, OptionalEntropy.pbData, OptionalEntropy.cbData); ;
+		Marshal.Copy(salt, 0, OptionalEntropy.pbData, OptionalEntropy.cbData);
 		DATA_BLOB dbOut = new DATA_BLOB();
 		if (CryptUnprotectData(ref dbIn, null, ref OptionalEntropy, IntPtr.Zero, IntPtr.Zero, 0, ref dbOut))
 		{
@@ -239,7 +239,7 @@ public class Program
 		byte[] encData = (byte[])rk.GetValue(name);
 		if (encData[0] == 2)
 		{
-			int len = encData.Length;
+			int len = encData.Length - 1;
 			byte[] bData = new byte[len];
 			Array.Copy(encData, 1, bData, 0, len);
 			DATA_BLOB dbIn = new DATA_BLOB();
