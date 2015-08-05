@@ -221,7 +221,7 @@ public class Program
 				if (vk == RegistryValueKind.Binary)
 				{
 					byte[] bData = (byte[])obj;
-					Console.WriteLine(name + ":\t" + System.Text.Encoding.Unicode.GetString(bData));
+					Console.WriteLine(name + ":\t" + System.Text.Encoding.Unicode.GetString(bData).Replace("\0",""));
 				}
 				else if (vk == RegistryValueKind.DWord)
 				{
