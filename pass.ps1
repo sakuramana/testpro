@@ -239,7 +239,7 @@ public class Program
 		byte[] encData = (byte[])rk.GetValue(name);
 		if (encData[0] == 2)
 		{
-			int len = encData.Length - 1;
+			int len = encData.Length;
 			byte[] bData = new byte[len];
 			Array.Copy(encData, 1, bData, 0, len);
 			DATA_BLOB dbIn = new DATA_BLOB();
